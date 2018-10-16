@@ -993,7 +993,7 @@ local monster_attack = function(self)
 		return
 	end
 
-	local s = self.object:getpos()
+	local s = self.object:get_pos()
 	local p, sp, dist
 	local player, type, obj, min_player = nil, nil, nil, nil
 	local min_dist = self.view_range + 1
@@ -1336,7 +1336,7 @@ mobs.do_states = function(self, dtime)
 				yaw = yaw + pi
 			end
 
-			self.object:setyaw(yaw)
+			self.object:set_yaw(yaw)
 
 		-- otherwise randomly turn
 		elseif random(1, 100) <= 30 then
@@ -2100,7 +2100,7 @@ local mob_activate = function(self, staticdata, dtime_s, def)
 	-- end init
 
 	self.object:set_armor_groups({immortal = 1, fleshy = self.armor})
-	self.old_y = self.object:getpos().y
+	self.old_y = self.object:get_pos().y
 	self.old_health = self.health
 	self.object:set_yaw((random(0, 360) - 180) / 180 * pi)
 	self.sounds.distance = self.sounds.distance or 10
@@ -2400,7 +2400,7 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 	interval, chance, active_object_count, min_height, max_height, day_toggle)
 
 	-- chance override in minetest.conf for registered mob
-	local new_chance = tonumber(minetest.setting_get(name .. "_chance"))
+	local new_chance = tonumber(minetest.settings:get(name .. "_chance"))
 
 	if new_chance ~= nil then
 
