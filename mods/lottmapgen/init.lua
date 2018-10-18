@@ -183,7 +183,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 	local nvals_temp = nobj_temp:get_2d_map_flat(minposxz, nbuf_temp)
 	local nvals_humid = nobj_humid:get2dMap_flat(minposxz, nbuf_humid)
-	local nvals_random = nobj_random:get2dMap_flat(minposxz, nbuf_random)
+	local nvals_random = nobj_random:get_2d_map_flat(minposxz, nbuf_random)
 
 	local offset = math.random(5,20)
 	if biome_blend == true then
