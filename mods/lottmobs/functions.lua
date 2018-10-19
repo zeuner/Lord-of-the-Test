@@ -1,5 +1,5 @@
 local invisibility = invisibility or {}
-local damage_enabled = minetest.setting_getbool("enable_damage")
+local damage_enabled = minetest.settings:getbool("enable_damage")
 
 local get_distance = function(a, b)
 
