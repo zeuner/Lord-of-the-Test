@@ -350,7 +350,7 @@ function check_for_death(self)
 
 			if obj then
 
-				obj:setvelocity({
+				obj:set_velocity({
 					x = random(-10, 10) / 9,
 					y = 5,
 					z = random(-10, 10) / 9,
@@ -1920,7 +1920,7 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 
 	-- add healthy afterglow when hit
 	core.after(0.1, function()
-		self.object:settexturemod("^[colorize:#c9900070")
+		self.object:set_texture_mod("^[colorize:#c9900070")
 
 		core.after(0.3, function()
 			self.object:set_texture_mod("")
