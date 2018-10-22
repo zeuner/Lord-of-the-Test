@@ -113,7 +113,7 @@ creative.set_creative_formspec = function(player)
 end
 
 minetest.register_on_joinplayer(function(player)
-	if minetest.setting_getbool("creative_mode") then
+	if minetest.settings:get_bool("creative_mode") then
 		new_inv(player)
 	end
 end)
