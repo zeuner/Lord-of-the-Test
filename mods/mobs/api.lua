@@ -51,7 +51,7 @@ local peaceful_only = minetest.setting_getbool("only_peaceful_mobs")
 local disable_blood = minetest.setting_getbool("mobs_disable_blood")
 local creative = minetest.setting_getbool("creative_mode")
 local spawn_protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 1
-local remove_far = minetest.setting_getbool("remove_far_mobs")
+local remove_far = minetest.settings:get_bool("remove_far_mobs")
 local show_health_change = false
 
 -- pathfinding settings
@@ -338,7 +338,7 @@ function check_for_death(self)
 
 	-- drop items when dead
 	local obj
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 
 	for n = 1, #self.drops do
 
