@@ -1257,7 +1257,7 @@ mobs.do_states = function(self, dtime)
 				for n = 1, #objs do
 
 					if objs[n]:is_player() then
-						lp = objs[n]:getpos()
+						lp = objs[n]:get_pos()
 						break
 					end
 				end
