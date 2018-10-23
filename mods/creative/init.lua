@@ -192,7 +192,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 	end
 end)
 
-if minetest.setting_getbool("creative_mode") then
+if minetest.settings:get_bool("creative_mode") then
 	local digtime = 0.5
 	minetest.register_item(":", {
 		type = "none",
