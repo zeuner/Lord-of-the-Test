@@ -1,4 +1,4 @@
-local creative = minetest.setting_getbool("creative_mode")
+local creative = minetest.settings:get_bool("creative_mode")
 
 local lottthrowing_register_axe = function(axe, desc, damage, craft1, craft2)
 	local axe_entity = "lottthrowing:" .. axe .. "_entity"
