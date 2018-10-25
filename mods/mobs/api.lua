@@ -46,7 +46,7 @@ mobs.intllib = S
 local invisibility = invisibility or {}
 
 -- Load settings
-local damage_enabled = minetest.setting_getbool("enable_damage")
+local damage_enabled = minetest.settings:get_bool("enable_damage")
 local peaceful_only = minetest.settings:get_bool("only_peaceful_mobs")
 local disable_blood = minetest.setting_getbool("mobs_disable_blood")
 local creative = minetest.settings:get_bool("creative_mode")
