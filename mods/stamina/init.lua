@@ -324,7 +324,7 @@ function stamina.eat(hp_change, replace_with_item, itemstack, user, pointed_thin
 end
 
 -- stamina is disabled if damage is disabled
-if minetest.setting_getbool("enable_damage") and minetest.is_yes(minetest.setting_get("enable_stamina") or "1") then
+if minetest.settings:get_bool("enable_damage") and minetest.is_yes(minetest.settings:get("enable_stamina") or "1") then
 	minetest.register_on_joinplayer(function(player)
 		local inv = player:get_inventory()
 		inv:set_size("stamina", 1)

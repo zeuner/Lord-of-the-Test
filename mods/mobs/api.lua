@@ -1997,7 +1997,7 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 		do_attack(self, hitter)
 
 		-- alert others to the attack
-		local objs = minetest.get_objects_inside_radius(hitter:getpos(), self.view_range)
+		local objs = minetest.get_objects_inside_radius(hitter:get_pos(), self.view_range)
 		local obj = nil
 
 		for n = 1, #objs do
