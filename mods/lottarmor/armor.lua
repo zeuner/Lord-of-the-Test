@@ -556,7 +556,7 @@ if ARMOR_DROP == true or ARMOR_DESTROY == true then
 	end
 	minetest.register_on_dieplayer(function(player)
 		local name, player_inv, armor_inv, pos = armor:get_valid_player(player, "[on_dieplayer]")
-		if not name or minetest.setting_getbool("creative_mode") == true then
+		if not name or minetest.settings:get_bool("creative_mode") == true then
 			return
 		end
 		local drop = {}

@@ -47,9 +47,9 @@ local invisibility = invisibility or {}
 
 -- Load settings
 local damage_enabled = minetest.setting_getbool("enable_damage")
-local peaceful_only = minetest.setting_getbool("only_peaceful_mobs")
+local peaceful_only = minetest.settings:get_bool("only_peaceful_mobs")
 local disable_blood = minetest.setting_getbool("mobs_disable_blood")
-local creative = minetest.setting_getbool("creative_mode")
+local creative = minetest.settings:get_bool("creative_mode")
 local spawn_protected = tonumber(minetest.setting_get("mobs_spawn_protected")) or 1
 local remove_far = minetest.settings:get_bool("remove_far_mobs")
 local show_health_change = false
