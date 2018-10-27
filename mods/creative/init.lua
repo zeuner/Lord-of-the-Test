@@ -119,7 +119,7 @@ minetest.register_on_joinplayer(function(player)
 end)
 
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-	if not minetest.setting_getbool("creative_mode") then
+	if not minetest.settings:get_bool("creative_mode") then
 		return
 	end
 	if fields.creative_tabs then
