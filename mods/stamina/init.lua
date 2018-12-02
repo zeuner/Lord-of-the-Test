@@ -119,7 +119,7 @@ local function exhaust_player(player, v)
 end
 
 -- Sprint settings and function
-local enable_sprint = minetest.setting_getbool("sprint") ~= false
+local enable_sprint = minetest.settings:get_bool("sprint") ~= false
 local armor_mod = minetest.get_modpath("lottarmor")
 
 function set_sprinting(name, sprinting)
