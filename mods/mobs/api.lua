@@ -32,7 +32,7 @@ local S, NS = dofile(
 mobs.intllib = S
 
 -- Invisibility mod
-local invisibility = invisibility or {}
+local invisibility = (rawget(_G, "invisibility") and invisibility) or {}
 
 -- Load settings
 local damage_enabled = minetest.settings:get_bool("enable_damage")
