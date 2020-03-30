@@ -88,7 +88,13 @@ end
 
 set_velocity = function(self, v)
 
-	local yaw = self.object:get_yaw() + self.rotate or 0
+	local yaw_base = self.object:get_yaw()
+
+	if not yaw_base then
+		return
+	end
+
+	local yaw = yaw_base + self.rotate or 0
 
 	self.object:set_velocity({
 		x = sin(yaw) * -v,
