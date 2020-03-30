@@ -1352,6 +1352,7 @@ mobs.do_states = function(self, dtime)
 		-- jump when walking comes to a halt
 		if temp_is_cliff == false
 		and self.jump
+		and self.object:get_velocity()
 		and get_velocity(self) <= 0.5
 		and self.object:get_velocity().y == 0 then
 
