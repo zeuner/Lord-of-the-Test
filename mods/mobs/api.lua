@@ -91,6 +91,18 @@ set_velocity = function(self, v)
 	local yaw_base = self.object:get_yaw()
 
 	if not yaw_base then
+		local properties = self.object:get_properties(
+		)
+		print(
+			"set_velocity failed on:"
+		)
+		for k, v in pairs(
+			properties
+		) do
+			print(
+				"property " .. k
+			)
+		end
 		return
 	end
 
@@ -399,6 +411,21 @@ local function is_at_cliff(self)
 	end
 
 	local yaw = self.object:getyaw()
+	if not yaw then
+		local properties = self.object:get_properties(
+		)
+		print(
+			"is_at_cliff failed on:"
+		)
+		for k, v in pairs(
+			properties
+		) do
+			print(
+				"property " .. k
+			)
+		end
+		return
+	end
 	local dir_x = -sin(yaw) * (self.collisionbox[4] + 0.5)
 	local dir_z = cos(yaw) * (self.collisionbox[4] + 0.5)
 	local pos = self.object:getpos()
