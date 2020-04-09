@@ -197,7 +197,7 @@ minetest.register_globalstep(function(dtime)
 				end
 			end
 			
-			if player:get_attribute("lott:immunity") == "ring" then
+			if player:get_meta():get_string("lott:immunity") == "ring" then
 				if wield ~= "lottother:nenya" then
 					player:set_attribute("lott:immunity", nil)
 					armor:set_player_armor(player)
@@ -228,7 +228,7 @@ minetest.register_globalstep(function(dtime)
 			end
 			
 			-- remove flight
-			if player:get_attribute("lott:vilya") == "ring" then
+			if player:get_meta():get_string("lott:vilya") == "ring" then
 				if wield ~= "lottother:vilya" then
 					local privs = minetest.get_player_privs(name)
 					privs.fly = nil
@@ -238,13 +238,13 @@ minetest.register_globalstep(function(dtime)
 			end
 			
 			-- narya ring
-			if player:get_attribute("lott:narya") == nil and wield == "lottother:narya" then
+			if player:get_meta():get_string("lott:narya") == nil and wield == "lottother:narya" then
 				player:set_properties({visual_size = {x = 0, y = 0}})
 				player:set_nametag_attributes({color = {a = 0, r = 255, g = 255, b = 255}})
 				player:set_attribute("lott:narya", "ring")
 			end
 			
-			if player:get_attribute("lott:narya") == "ring" then
+			if player:get_meta():get_string("lott:narya") == "ring" then
 				if wield ~= "lottother:narya" then
 					player:set_properties({visual_size = {x = 1, y = 1}})
 					player:set_nametag_attributes({color = {a = 255, r = 255, g = 255, b = 255}})
@@ -275,7 +275,7 @@ minetest.register_globalstep(function(dtime)
 		time2 = 0
 		for _, player in ipairs(minetest.get_connected_players()) do
 			local name = player:get_player_name()
-			local pos = player:getpos()		
+			local pos = player:get_pos()		
 			-- nenya ring particles
 			if player:get_inventory():get_stack("main", player:get_wield_index()):get_name() == "lottother:nenya" then
 				minetest.add_particlespawner({
