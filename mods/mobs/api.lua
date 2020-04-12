@@ -426,7 +426,7 @@ local function is_at_cliff(self)
 		return false
 	end
 
-	local yaw = self.object:getyaw()
+	local yaw = self.object:get_yaw()
 	if not yaw then
 		local properties = self.object:get_properties(
 		)
@@ -444,7 +444,7 @@ local function is_at_cliff(self)
 	end
 	local dir_x = -sin(yaw) * (self.collisionbox[4] + 0.5)
 	local dir_z = cos(yaw) * (self.collisionbox[4] + 0.5)
-	local pos = self.object:getpos()
+	local pos = self.object:get_pos()
 	local ypos = pos.y + self.collisionbox[2] -- just above floor
 
 	if minetest.line_of_sight(
