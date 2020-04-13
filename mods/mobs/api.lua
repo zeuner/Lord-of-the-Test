@@ -828,7 +828,7 @@ function replace(self, pos)
 	and self.child == false
 	and random(1, self.replace_rate) == 1 then
 
-		local pos = self.object:getpos()
+		local pos = self.object:get_pos()
 
 		pos.y = pos.y + self.replace_offset
 
@@ -836,7 +836,7 @@ function replace(self, pos)
 
 		if self.replace_what
 		and self.replace_with
-		and self.object:getvelocity().y == 0
+		and self.object:get_velocity().y == 0
 		and #minetest.find_nodes_in_area(pos, pos, self.replace_what) > 0 then
 
 			minetest.set_node(pos, {name = self.replace_with})
