@@ -222,6 +222,7 @@ minetest.register_on_joinplayer(function(player)
 			end
 			minetest.after(i, function()
 				if player == nil then return end
+				if not player:get_meta() then return end
 				if not player:get_meta():get("lott:immunity") then return end
 				player:get_meta():set_string("lott:immunity", tonumber(player:get_meta():get_string("lott:immunity")) - 1)
 			end)
