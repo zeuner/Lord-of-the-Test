@@ -1665,12 +1665,14 @@ mobs.do_states = function(self, dtime)
 
 				-- jump attack
 				local self_velocity = get_velocity(self)
+				local self_object_velocity = self.object:get_velocity()
 
 				if (self.jump
 				and self_velocity
 				and self_velocity <= 0.5
-				and self.object:get_velocity().y == 0)
-				or (self.object:get_velocity().y == 0
+				and self_object_velocity.y == 0)
+				or (self_object_velocity
+				and self_object_velocity.y == 0
 				and self.jump_chance > 0) then
 
 					do_jump(self)
