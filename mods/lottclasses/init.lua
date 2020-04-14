@@ -203,33 +203,33 @@ minetest.register_on_joinplayer(function(player)
 	end
 	
 	-- Resume starter mob immunity
-	if player:get_attribute("lott:immunity") ~= nil then
-		if not tonumber(player:get_attribute("lott:immunity")) then
-			player:set_attribute("lott:immunity", nil)
+	if player:get_meta():get("lott:immunity") ~= nil then
+		if not tonumber(player:get_meta():get_string("lott:immunity")) then
+			player:get_meta():set_string("lott:immunity", "")
 			return
 		end
-		if tonumber(player:get_attribute("lott:immunity")) >= immune_amt then
+		if tonumber(player:get_meta():get_string("lott:immunity")) >= immune_amt then
 			return
 		end
 	
 		minetest.chat_send_player(name, minetest.colorize("green", "Your starter mob immunity has resumed!"))
-		minetest.chat_send_player(name, minetest.colorize("green", "You still have "..tonumber(player:get_attribute("lott:immunity")) / 60 .." minutes left!"))
+		minetest.chat_send_player(name, minetest.colorize("green", "You still have "..tonumber(player:get_meta():get_string("lott:immunity")) / 60 .." minutes left!"))
 	
-		for i = 1, tonumber(player:get_attribute("lott:immunity")) do
-			if not tonumber(player:get_attribute("lott:immunity")) then
-				player:set_attribute("lott:immunity", nil)
+		for i = 1, tonumber(player:get_meta():get_string("lott:immunity")) do
+			if not tonumber(player:get_meta():get_string("lott:immunity")) then
+				player:get_meta():set_string("lott:immunity", "")
 				return
 			end
 			minetest.after(i, function()
 				if player == nil then return end
-				if not player:get_attribute("lott:immunity") then return end
-				player:set_attribute("lott:immunity", tonumber(player:get_attribute("lott:immunity")) - 1)
+				if not player:get_meta():get("lott:immunity") then return end
+				player:get_meta():set_string("lott:immunity", tonumber(player:get_meta():get_string("lott:immunity")) - 1)
 			end)
 		end
 		
-		minetest.after(player:get_attribute("lott:immunity")+1, function()
+		minetest.after(player:get_meta():get_number("lott:immunity")+1, function()
 			if player == nil then return end
-			player:set_attribute("lott:immunity", nil)
+			player:get_meta():set_string("lott:immunity", "")
 			armor:set_player_armor(player)
 		
 			minetest.chat_send_player(name, minetest.colorize("orange", "Your starter mob immunity has expired!"))
