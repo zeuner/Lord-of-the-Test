@@ -1340,6 +1340,28 @@ mobs.do_states = function(self, dtime)
 			local lp = nil
 			local s = self.object:get_pos()
 
+			if not s then
+				local properties = self.object:get_properties(
+				)
+				print(
+					"mobs.do_states failed on:"
+				)
+			        if properties then
+			                for k, v in pairs(
+			                        properties
+			                ) do
+			                        print(
+			                                "property " .. k
+			                        )
+			                end
+			        else
+			                print(
+			                        "disappeared object"
+			                )
+			        end
+				return
+			end
+
 			if self.type == "npc" then
 
 				local objs = minetest.get_objects_inside_radius(s, 3)
