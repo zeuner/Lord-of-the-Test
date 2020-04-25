@@ -107,13 +107,19 @@ set_velocity = function(self, v)
 		print(
 			"set_velocity failed on:"
 		)
-		for k, v in pairs(
-			properties
-		) do
-			print(
-				"property " .. k
-			)
-		end
+	        if properties then
+	                for k, v in pairs(
+	                        properties
+	                ) do
+	                        print(
+	                                "property " .. k
+	                        )
+	                end
+	        else
+	                print(
+	                        "disappeared object"
+	                )
+	        end
 		return
 	end
 
@@ -136,13 +142,19 @@ get_velocity = function(self)
 		print(
 			"get_velocity failed on:"
 		)
-		for k, v in pairs(
-			properties
-		) do
-			print(
-				"property " .. k
-			)
-		end
+	        if properties then
+	                for k, v in pairs(
+	                        properties
+	                ) do
+	                        print(
+	                                "property " .. k
+	                        )
+	                end
+	        else
+	                print(
+	                        "disappeared object"
+	                )
+	        end
 		return
 	end
 
@@ -444,13 +456,19 @@ local function is_at_cliff(self)
 		print(
 			"is_at_cliff failed on:"
 		)
-		for k, v in pairs(
-			properties
-		) do
-			print(
-				"property " .. k
-			)
-		end
+	        if properties then
+	                for k, v in pairs(
+	                        properties
+	                ) do
+	                        print(
+	                                "property " .. k
+	                        )
+	                end
+	        else
+	                print(
+	                        "disappeared object"
+	                )
+	        end
 		return
 	end
 	local dir_x = -sin(yaw) * (self.collisionbox[4] + 0.5)
