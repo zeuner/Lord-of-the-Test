@@ -110,7 +110,26 @@ local npc_attack = function(self)
 	end
         local player, entity_type, obj, min_player, npc_race = nil, nil, nil, nil, nil
         local min_dist = self.view_range + 1
-        local objs = minetest.get_objects_inside_radius(self.object:get_pos(), self.view_range)
+
+	local self_pos = self.object:get_pos()
+
+        if not self_pos then
+                local properties = self.object:get_properties(
+                )
+                print(
+                        "npc_attack failed on:"
+                )
+                for k, v in pairs(
+                        properties
+                ) do
+                        print(
+                                "property " .. k
+                        )
+                end
+                return
+        end
+
+        local objs = minetest.get_objects_inside_radius(self_pos, self.view_range)
         for n = 1, #objs do
                 if invisibility[ objs[n]:get_player_name() ] then
                         entity_type = ""
