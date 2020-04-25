@@ -1150,6 +1150,29 @@ mobs.follow_flop = function(self)
 		local s = self.object:get_pos()
 		local players = minetest.get_connected_players()
 
+	        if not s then
+	                local properties = self.object:get_properties(
+	                )
+	                print(
+	                        "mobs.follow_flop failed on:"
+	                )
+	                if properties then
+	                        for k, v in pairs(
+	                                properties
+	                        ) do
+	                                print(
+	                                        "property " .. k
+	                                )
+	                        end
+	                else
+	                        print(
+	                                "disappeared object"
+	                        )
+	                end
+	                return
+	        end
+
+
 		for n = 1, #players do
 
 			if get_distance(players[n]:get_pos(), s) < self.view_range
