@@ -1418,6 +1418,28 @@ mobs.do_states = function(self, dtime)
 		local s = self.object:get_pos()
 		local lp = nil
 
+		if not s then
+			local properties = self.object:get_properties(
+			)
+			print(
+				"mobs.do_states failed on:"
+			)
+		        if properties then
+		                for k, v in pairs(
+		                        properties
+		                ) do
+		                        print(
+		                                "property " .. k
+		                        )
+		                end
+		        else
+		                print(
+		                        "disappeared object"
+		                )
+		        end
+			return
+		end
+
 		-- is there something I need to avoid?
 		if self.water_damage > 0
 		and self.lava_damage > 0 then
