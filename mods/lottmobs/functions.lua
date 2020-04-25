@@ -119,13 +119,19 @@ local npc_attack = function(self)
                 print(
                         "npc_attack failed on:"
                 )
-                for k, v in pairs(
-                        properties
-                ) do
-                        print(
-                                "property " .. k
-                        )
-                end
+		if properties then
+	                for k, v in pairs(
+	                        properties
+	                ) do
+	                        print(
+	                                "property " .. k
+	                        )
+	                end
+		else
+			print(
+				"disappeared object"
+			)
+		end
                 return
         end
 
