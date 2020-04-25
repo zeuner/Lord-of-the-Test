@@ -515,6 +515,28 @@ do_env_damage = function(self)
 
 	self.time_of_day = minetest.get_timeofday()
 
+	if not pos then
+	        local properties = self.object:get_properties(
+	        )
+	        print(
+	                "do_env_damage failed on:"
+	        )
+	        if properties then
+	                for k, v in pairs(
+	                        properties
+	                ) do
+	                        print(
+	                                "property " .. k
+	                        )
+	                end
+	        else
+	                print(
+	                        "disappeared object"
+	                )
+	        end
+	        return
+	end
+
 	-- remove mob if beyond map limits
 	if not within_limits(pos, 0) then
 		self.object:remove()
