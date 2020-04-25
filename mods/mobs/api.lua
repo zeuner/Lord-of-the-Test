@@ -1150,6 +1150,29 @@ local npc_attack = function(self)
 	end
 
 	local s = self.object:get_pos()
+
+	if not s then
+	        local properties = self.object:get_properties(
+	        )
+	        print(
+	                "npc_attack failed on:"
+	        )
+	        if properties then
+	                for k, v in pairs(
+	                        properties
+	                ) do
+	                        print(
+	                                "property " .. k
+	                        )
+	                end
+	        else
+	                print(
+	                        "disappeared object"
+	                )
+	        end
+	        return
+	end
+
 	local min_dist = self.view_range + 1
 	local obj, min_player = nil, nil
 	local objs = minetest.get_objects_inside_radius(s, self.view_range)
