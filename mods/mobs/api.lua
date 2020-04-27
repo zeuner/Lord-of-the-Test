@@ -1569,6 +1569,51 @@ mobs.do_states = function(self, dtime)
 		-- calculate distance from mob and enemy
 		local s = self.object:get_pos()
 		local p = self.attack:get_pos() or s
+
+		if not s then
+			local properties = self.object:get_properties(
+			)
+			print(
+				"mobs.do_states failed on:"
+			)
+		        if properties then
+		                for k, v in pairs(
+		                        properties
+		                ) do
+		                        print(
+		                                "property " .. k
+		                        )
+		                end
+		        else
+		                print(
+		                        "disappeared object"
+		                )
+		        end
+			return
+		end
+
+		if not p then
+			local properties = self.attack:get_properties(
+			)
+			print(
+				"mobs.do_states failed on:"
+			)
+		        if properties then
+		                for k, v in pairs(
+		                        properties
+		                ) do
+		                        print(
+		                                "property " .. k
+		                        )
+		                end
+		        else
+		                print(
+		                        "disappeared object"
+		                )
+		        end
+			return
+		end
+
 		local dist = get_distance(p, s)
 
 		-- stop attacking if player or out of range
