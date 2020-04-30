@@ -660,7 +660,7 @@ function lottmapgen.yavannamire_tree(x, y, z, area, data)
 end
 
 function lottmapgen.default_tree(x, y, z, area, data)
-	local c_tree = minetest.get_content_id("lottplants:oak_tree")
+	local c_tree = minetest.get_content_id("lottplants:oak_trunk")
 	local c_leaves = minetest.get_content_id("lottplants:oak_leaves")
 	for j = -2, 4 do
 		if j >= 1 then
